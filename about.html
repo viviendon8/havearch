@@ -123,6 +123,16 @@
     pointer-events: none;
     z-index: 99999;
   }
+  /* ── Content Protection ─────────────────────────────── */
+  img, video {
+    -webkit-user-drag: none;
+    user-drag: none;
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
+  }
+  a, button, #logo-btn, #logo-btn img, #top-bar, #nav-links a { pointer-events: auto; }
+
 </style>
 </head>
 <body>
@@ -215,6 +225,29 @@
     function loop() { drawCursor(mx, my, isOverGreen() ? BLUE : GREEN); requestAnimationFrame(loop); }
     loop();
   })();
+
+  // ── Content Protection ───────────────────────────────
+  (function() {
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('dragstart', e => {
+      if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO') e.preventDefault();
+    });
+    document.addEventListener('keydown', e => {
+      if (
+        (e.ctrlKey && (e.key === 's' || e.key === 'u' || e.key === 'p')) ||
+        (e.ctrlKey && e.shiftKey && (e.key === 'i' || e.key === 'j' || e.key === 'c')) ||
+        e.key === 'F12'
+      ) { e.preventDefault(); }
+    });
+    document.addEventListener('selectstart', e => e.preventDefault());
+  })();
+
 </script>
+
+<!-- Copyright -->
+<div style="text-align:center; padding: 48px 8% 64px; font-family:'Inter',sans-serif; font-weight:300; font-size:12px; letter-spacing:0.08em; color:#999;">
+  © 2025 HAVE Architecture. All rights reserved.
+</div>
+
 </body>
 </html>
