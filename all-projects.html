@@ -438,21 +438,6 @@
   })();
 
 
-  // ── Content Protection ───────────────────────────────
-  (function() {
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    document.addEventListener('dragstart', e => {
-      if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO') e.preventDefault();
-    });
-    document.addEventListener('keydown', e => {
-      if (
-        (e.ctrlKey && (e.key === 's' || e.key === 'u' || e.key === 'p')) ||
-        (e.ctrlKey && e.shiftKey && (e.key === 'i' || e.key === 'j' || e.key === 'c')) ||
-        e.key === 'F12_DISABLED'
-      ) { e.preventDefault(); }
-    });
-    document.addEventListener('selectstart', e => e.preventDefault());
-  })();
 
 </script>
 
@@ -474,5 +459,6 @@
     });
   });
 </script>
+<script src="protect.js"></script>
 </body>
 </html>

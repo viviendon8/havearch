@@ -513,18 +513,8 @@
     logo.addEventListener('mouseenter', () => bar.classList.add('visible'));
     bar.addEventListener('mouseleave', () => bar.classList.remove('visible'));
   })();
-  (function() {
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    document.addEventListener('dragstart', e => {
-      if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO') e.preventDefault();
-    });
-    document.addEventListener('keydown', e => {
-      if (e.ctrlKey && (e.key === 's' || e.key === 'u' || e.key === 'p')) {
-        e.preventDefault();
-      }
-    });
-    document.addEventListener('selectstart', e => e.preventDefault());
-  })();
+
 </script>
+<script src="../../protect.js"></script>
 </body>
 </html>

@@ -619,28 +619,8 @@
   })();
 
 
-  // ── Content Protection ───────────────────────────────
-  (function() {
-    // Disable right click
-    document.addEventListener('contextmenu', e => e.preventDefault());
-
-    // Disable drag on images and videos
-    document.addEventListener('dragstart', e => {
-      if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO') e.preventDefault();
-    });
-
-    // Disable common shortcuts
-    document.addEventListener('keydown', e => {
-      // Ctrl+S, Ctrl+U, Ctrl+P only
-      if (e.ctrlKey && (e.key === 's' || e.key === 'u' || e.key === 'p')) {
-        e.preventDefault();
-      }
-    });
-
-    // Disable text selection on the page
-    document.addEventListener('selectstart', e => e.preventDefault());
-  })();
 
 </script>
+<script src="../../protect.js"></script>
 </body>
 </html>
