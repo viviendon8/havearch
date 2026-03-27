@@ -418,6 +418,7 @@
     controls
     controlslist="nodownload"
     disablePictureInPicture
+    preload="metadata"
     style="width:100%;height:auto;display:block;background:#000;"
   >
     <source src="https://media.havearch.com/ENCIRCLE_VIDEO.mp4" type="video/mp4" />
@@ -426,8 +427,12 @@
   <script>
     (function() {
       var v = document.getElementById('project-video');
+      var seeked = false;
       v.addEventListener('loadedmetadata', function() {
         v.currentTime = 14;
+      });
+      v.addEventListener('seeked', function() {
+        if (!seeked) { seeked = true; v.pause(); }
       });
       v.addEventListener('play', function() {
         if (v.currentTime >= 14 && v.currentTime < 14.5) {
