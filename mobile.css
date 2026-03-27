@@ -19,24 +19,21 @@
     height: 56px !important;
     top: 12px !important;
     left: 16px !important;
+    position: fixed !important;
+    opacity: 1 !important;
+    transition: transform 0.15s ease !important;
+  }
+  #logo-btn:active {
+    transform: scale(1.15) !important;
   }
   #logo-btn img {
     width: 100% !important;
     height: 100% !important;
   }
 
-  /* ── Top bar / Navigation ─────────────────────────── */
+  /* ── Top bar: hide entirely on mobile (no hover nav) ── */
   #top-bar {
-    height: 64px !important;
-    padding: 0 16px !important;
-  }
-  #top-bar .logo-space {
-    width: 56px !important;
-    height: 56px !important;
-  }
-  #top-bar .logo-space img {
-    width: 100% !important;
-    height: 100% !important;
+    display: none !important;
   }
 
   /* Hide desktop nav links, show hamburger */
@@ -48,7 +45,9 @@
     display: none;
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(255,255,255,1);
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     z-index: 9998;
     flex-direction: column;
     align-items: center;
@@ -68,7 +67,7 @@
   #mobile-menu a:active { color: #00ff18; }
   #mobile-menu-close {
     position: absolute;
-    top: 16px; right: 16px;
+    top: 56px; right: 16px;
     font-size: 32px;
     background: none; border: none;
     cursor: pointer; color: #111;
@@ -121,6 +120,7 @@
   }
   .proj-card {
     margin-bottom: 40px !important;
+    margin-top: 0 !important;
   }
   .proj-meta-logo {
     width: 40px !important;
@@ -161,7 +161,7 @@
     gap: 32px !important;
     padding: 32px 6% !important;
   }
-  /* Info block comes first visually */
+  /* Info block comes first visually — 2 column grid */
   .intro-info,
   aside.intro-info {
     order: -1 !important;
@@ -169,9 +169,14 @@
     border-bottom: 1px solid #e8e8e8 !important;
     padding-left: 0 !important;
     padding-bottom: 24px !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
     gap: 16px 32px !important;
+  }
+  /* Team and Awards span full width */
+  .intro-info .info-block:nth-child(n+6),
+  aside.intro-info .info-block:nth-child(n+6) {
+    grid-column: 1 / -1 !important;
   }
   .intro-description,
   .intro-text {
@@ -342,7 +347,7 @@
      ABOUT PAGE
      ════════════════════════════════════════════════════ */
   .about-wrap {
-    padding: 80px 16px 80px !important;
+    padding: 80px 20px 80px !important;
   }
   .about-heading {
     font-size: 18px !important;
@@ -359,7 +364,7 @@
      AWARDS PAGE
      ════════════════════════════════════════════════════ */
   .awards-wrap {
-    padding: 80px 16px 80px !important;
+    padding: 80px 20px 80px !important;
   }
   .awards-heading {
     font-size: 18px !important;
@@ -381,7 +386,7 @@
      CONTACT PAGE
      ════════════════════════════════════════════════════ */
   .contact-wrap {
-    padding: 0 16px !important;
+    padding: 0 20px !important;
   }
   .contact-heading-wrap {
     position: relative !important;
