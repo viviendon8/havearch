@@ -93,6 +93,7 @@
   * { cursor: none !important; }
   #custom-cursor { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 99999; }
 </style>
+<link rel="stylesheet" href="/mobile.css">
 </head>
 <body>
 
@@ -210,6 +211,18 @@
 
 <div style="position:fixed;bottom:32px;left:0;right:0;text-align:center;font-family:'Inter',sans-serif;font-weight:300;font-size:12px;letter-spacing:0.08em;color:#999;pointer-events:none;">© 2025 HAVE Architecture. All rights reserved.</div>
 
+<!-- Mobile hamburger menu -->
+<button id="mobile-hamburger" onclick="document.getElementById('mobile-menu').classList.add('open')" style="display:none;position:fixed;top:16px;right:16px;z-index:9999;background:none;border:none;padding:8px;cursor:pointer;">
+  <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><line x1="4" y1="8" x2="24" y2="8" stroke="#111" stroke-width="2"/><line x1="4" y1="14" x2="24" y2="14" stroke="#111" stroke-width="2"/><line x1="4" y1="20" x2="24" y2="20" stroke="#111" stroke-width="2"/></svg>
+</button>
+<div id="mobile-menu">
+  <button id="mobile-menu-close" onclick="this.parentElement.classList.remove('open')">×</button>
+  <a href="/home.html" onclick="this.parentElement.classList.remove('open')">HOME</a>
+  <a href="/all-projects.html" onclick="this.parentElement.classList.remove('open')">PROJECTS</a>
+  <a href="/about.html" onclick="this.parentElement.classList.remove('open')">ABOUT</a>
+  <a href="/awards.html" onclick="this.parentElement.classList.remove('open')">AWARDS</a>
+  <a href="/contact.html" onclick="this.parentElement.classList.remove('open')">CONTACT</a>
+</div>
 <script src="protect.js"></script>
 </body>
 </html>

@@ -1,0 +1,433 @@
+/* ═══════════════════════════════════════════════════════
+   HAVE Architecture — Mobile Responsive Overrides
+   Only active at ≤ 768px. Desktop styles untouched.
+   ═══════════════════════════════════════════════════════ */
+
+/* Base: hide mobile-only elements on all screen sizes */
+#mobile-hamburger { display: none; }
+#mobile-menu { display: none; }
+
+@media (max-width: 768px) {
+
+  /* ── Custom cursor: disable on touch ──────────────── */
+  * { cursor: auto !important; }
+  #custom-cursor { display: none !important; }
+
+  /* ── Logo button ──────────────────────────────────── */
+  #logo-btn {
+    width: 56px !important;
+    height: 56px !important;
+    top: 12px !important;
+    left: 16px !important;
+  }
+  #logo-btn img {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  /* ── Top bar / Navigation ─────────────────────────── */
+  #top-bar {
+    height: 64px !important;
+    padding: 0 16px !important;
+  }
+  #top-bar .logo-space {
+    width: 56px !important;
+    height: 56px !important;
+  }
+  #top-bar .logo-space img {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  /* Hide desktop nav links, show hamburger */
+  .nav-link { display: none !important; }
+  #mobile-hamburger { display: flex !important; }
+
+  /* Mobile menu overlay */
+  #mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255,255,255,1);
+    z-index: 9998;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
+  }
+  #mobile-menu.open { display: flex !important; }
+  #mobile-menu a {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #111;
+    text-decoration: none;
+  }
+  #mobile-menu a:active { color: #00ff18; }
+  #mobile-menu-close {
+    position: absolute;
+    top: 16px; right: 16px;
+    font-size: 32px;
+    background: none; border: none;
+    cursor: pointer; color: #111;
+    font-weight: 300;
+    z-index: 9999;
+  }
+
+  /* ── Copyright footer ─────────────────────────────── */
+  div[style*="position:fixed"][style*="bottom:32px"] {
+    bottom: 16px !important;
+    font-size: 10px !important;
+  }
+
+  /* ════════════════════════════════════════════════════
+     HOME PAGE
+     ════════════════════════════════════════════════════ */
+
+  /* Pixel grid */
+  .cell {
+    width: 5.5vw !important;
+    height: 5.5vw !important;
+  }
+  .letter { gap: 4px !important; }
+  .word { gap: 12px !important; }
+
+  /* Disable hover preview card */
+  #proj-preview { display: none !important; }
+
+  /* Scale project logos inside cells */
+  .cell img {
+    width: 65% !important;
+    height: 65% !important;
+  }
+
+  /* ════════════════════════════════════════════════════
+     ALL PROJECTS PAGE
+     ════════════════════════════════════════════════════ */
+  .projects-wrap {
+    padding: 80px 16px 48px !important;
+  }
+  .projects-grid {
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+  .proj-col {
+    width: 100% !important;
+  }
+  .proj-col:nth-child(2) {
+    margin-top: 0 !important;
+  }
+  .proj-card {
+    margin-bottom: 40px !important;
+  }
+  .proj-meta-logo {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  .proj-name {
+    font-size: 13px !important;
+  }
+
+  /* On mobile, show image (no hover video swap) */
+  .proj-card:hover .proj-img { opacity: 1 !important; }
+  .proj-video { display: none !important; }
+
+  /* ════════════════════════════════════════════════════
+     PROJECT PAGES — HERO
+     ════════════════════════════════════════════════════ */
+  .hero {
+    height: 60vh !important;
+  }
+  .hero-title {
+    bottom: 24px !important;
+    left: 20px !important;
+    right: 20px !important;
+  }
+  .hero-title h1 {
+    font-size: 28px !important;
+  }
+  .hero-title .hero-location {
+    font-size: 13px !important;
+  }
+  .scroll-hint { display: none !important; }
+
+  /* ════════════════════════════════════════════════════
+     PROJECT PAGES — INTRO (sidebar → stacked)
+     ════════════════════════════════════════════════════ */
+  .intro {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+    padding: 32px 6% !important;
+  }
+  /* Info block comes first visually */
+  .intro-info,
+  aside.intro-info {
+    order: -1 !important;
+    border-left: none !important;
+    border-bottom: 1px solid #e8e8e8 !important;
+    padding-left: 0 !important;
+    padding-bottom: 24px !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 16px 32px !important;
+  }
+  .intro-description,
+  .intro-text {
+    font-size: 16px !important;
+  }
+
+  /* ════════════════════════════════════════════════════
+     PROJECT PAGES — CONTENT SECTIONS
+     ════════════════════════════════════════════════════ */
+  .content-section {
+    padding: 32px 6% !important;
+  }
+  .content-section h2 {
+    font-size: 18px !important;
+    margin-bottom: 20px !important;
+  }
+  .section-text,
+  .content-section p {
+    font-size: 14px !important;
+  }
+
+  /* Image grids → single column */
+  .img-grid-2 {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  .img-row.col-2 {
+    grid-template-columns: 1fr !important;
+  }
+  .img-row.col-3 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Back link */
+  .back-link {
+    padding: 24px 6% !important;
+    font-size: 12px !important;
+  }
+
+  /* ════════════════════════════════════════════════════
+     OVO — DIAGRAM GRID → stacked
+     ════════════════════════════════════════════════════ */
+  .diagram-grid {
+    flex-direction: column !important;
+    height: auto !important;
+    gap: 32px !important;
+    overflow: visible !important;
+  }
+  .diagram-grid .dg-col {
+    height: auto !important;
+    width: 100% !important;
+  }
+  .diagram-grid .dg-col.dg-left {
+    flex-direction: row !important;
+    gap: 16px !important;
+  }
+  .diagram-grid .dg-left .dg-cell {
+    height: auto !important;
+    flex: 1 !important;
+  }
+  .diagram-grid .dg-left .dg-cell img,
+  .diagram-grid .dg-mid img,
+  .diagram-grid .dg-right img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+  .diagram-grid .dg-col.dg-right {
+    height: auto !important;
+    margin-left: 0 !important;
+  }
+
+  /* OVO axon scroll section */
+  #axon-scroll-section {
+    height: 200vh !important;
+  }
+
+  /* OVO plan image */
+  img[src*="OVO_PLAN"] {
+    width: 85% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* OVO bottom two images */
+  div[style*="display:flex"][style*="gap:40px"][style*="margin:80px 8%"] {
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+
+  /* ════════════════════════════════════════════════════
+     ENCIRCLE — special layouts
+     ════════════════════════════════════════════════════ */
+
+  /* Scroll section */
+  #scroll-section {
+    height: 200vh !important;
+  }
+
+  /* Overlay images inside scroll section */
+  #img-overlay {
+    flex-direction: column !important;
+    gap: 12px !important;
+    padding: 12px !important;
+  }
+  #img-overlay img {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Plan slideshow → wider on mobile */
+  #plan-slideshow {
+    width: 85% !important;
+  }
+
+  /* Section image → wider, remove offset */
+  div[style*="width:68%"][style*="left:-100px"] {
+    width: 90% !important;
+    left: 0 !important;
+  }
+
+  /* Three-column renders → stack */
+  div[style*="display:flex"][style*="gap:16px"][style*="margin:40px 8%"] {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+  div[style*="display:flex"][style*="gap:16px"][style*="margin:40px 8%"] > div {
+    flex: none !important;
+    width: 100% !important;
+  }
+
+  /* ════════════════════════════════════════════════════
+     GATHERING STARS — carousel/slider
+     ════════════════════════════════════════════════════ */
+
+  /* Slider wrapper → less padding */
+  #gs-slider-wrap {
+    padding: 0 4% !important;
+  }
+
+  /* Arrows smaller */
+  #gs-arrow-prev, #gs-arrow-next {
+    width: 44px !important;
+  }
+  #gs-arrow-prev svg, #gs-arrow-next svg {
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  /* Indicators smaller */
+  #gs-slider-wrap div[style*="gap:10px"] {
+    gap: 6px !important;
+  }
+
+  /* ════════════════════════════════════════════════════
+     AURA VILLA — portrait slider
+     ════════════════════════════════════════════════════ */
+  .slide-img {
+    height: 50vh !important;
+  }
+
+  /* Panorama full-width image */
+  img[src*="AV_02_PANORAMA"] {
+    width: 100% !important;
+  }
+
+  /* ════════════════════════════════════════════════════
+     ABOUT PAGE
+     ════════════════════════════════════════════════════ */
+  .about-wrap {
+    padding: 80px 16px 80px !important;
+  }
+  .about-heading {
+    font-size: 18px !important;
+    margin-bottom: 24px !important;
+  }
+  .about-body {
+    font-size: 14px !important;
+  }
+  .about-text {
+    margin-top: 24px !important;
+  }
+
+  /* ════════════════════════════════════════════════════
+     AWARDS PAGE
+     ════════════════════════════════════════════════════ */
+  .awards-wrap {
+    padding: 80px 16px 80px !important;
+  }
+  .awards-heading {
+    font-size: 18px !important;
+    margin-bottom: 24px !important;
+  }
+  .award-row {
+    grid-template-columns: 1fr !important;
+    gap: 4px !important;
+    margin-bottom: 28px !important;
+  }
+  .award-year {
+    font-size: 13px !important;
+  }
+  .award-name, .award-project, .award-link {
+    font-size: 13px !important;
+  }
+
+  /* ════════════════════════════════════════════════════
+     CONTACT PAGE
+     ════════════════════════════════════════════════════ */
+  .contact-wrap {
+    padding: 0 16px !important;
+  }
+  .contact-heading-wrap {
+    position: relative !important;
+    top: auto !important;
+    transform: none !important;
+    padding-top: 80px !important;
+  }
+  .contact-content {
+    position: relative !important;
+    top: auto !important;
+    transform: none !important;
+    padding-bottom: 80px !important;
+  }
+  .contact-heading {
+    font-size: 18px !important;
+    margin-bottom: 16px !important;
+  }
+  .contact-row {
+    margin-bottom: 24px !important;
+  }
+
+  /* ════════════════════════════════════════════════════
+     GENERAL — inline style overrides for all pages
+     ════════════════════════════════════════════════════ */
+
+  /* Any flex row with 8% margin → tighter on mobile */
+  div[style*="margin:80px 8%"],
+  div[style*="margin: 80px 8%"] {
+    margin-left: 4% !important;
+    margin-right: 4% !important;
+    margin-top: 40px !important;
+  }
+  div[style*="margin:40px 8%"],
+  div[style*="margin: 40px 8%"] {
+    margin-left: 4% !important;
+    margin-right: 4% !important;
+    margin-top: 24px !important;
+  }
+  div[style*="margin:0 8%"] {
+    margin-left: 4% !important;
+    margin-right: 4% !important;
+  }
+
+  /* Videos */
+  div[style*="margin:80px 8%"] video,
+  div[style*="margin: 80px 8%"] video {
+    width: 100% !important;
+  }
+}
