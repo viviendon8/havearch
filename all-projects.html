@@ -448,35 +448,43 @@
 
 
 <script>
+  var isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
   document.querySelectorAll('.proj-card').forEach(function(card) {
     var video = card.querySelector('.proj-video');
     if (!video) return;
-    // Desktop: hover
-    card.addEventListener('mouseenter', function() {
-      video.play().catch(function(){});
-    });
-    card.addEventListener('mouseleave', function() {
-      video.pause();
-      video.currentTime = 0;
-    });
-    // Mobile: long-press to peek video
-    var touchTimer = null;
-    card.addEventListener('touchstart', function(e) {
-      touchTimer = setTimeout(function() {
-        card.classList.add('touching');
-        if (video.tagName === 'VIDEO') video.play().catch(function(){});
-      }, 400);
-    }, {passive: true});
-    card.addEventListener('touchend', function() {
-      clearTimeout(touchTimer);
-      card.classList.remove('touching');
-      if (video.tagName === 'VIDEO') { video.pause(); video.currentTime = 0; }
-    });
-    card.addEventListener('touchmove', function() {
-      clearTimeout(touchTimer);
-      card.classList.remove('touching');
-      if (video.tagName === 'VIDEO') { video.pause(); video.currentTime = 0; }
-    });
+
+    if (!isMobile) {
+      // Desktop: hover
+      card.addEventListener('mouseenter', function() {
+        video.play().catch(function(){});
+      });
+      card.addEventListener('mouseleave', function() {
+        video.pause();
+        video.currentTime = 0;
+      });
+    } else {
+      // Mobile: tap IMAGE area → toggle video; tap TEXT area → navigate
+      var imgWrap = card.querySelector('.proj-img-wrap');
+      if (imgWrap) {
+        imgWrap.addEventListener('click', function(e) {
+          if (card.classList.contains('showing-video')) {
+            // Already showing video → let default <a> navigate to project
+            return;
+          }
+          // First tap on image → show video preview
+          e.preventDefault();
+          e.stopPropagation();
+          document.querySelectorAll('.proj-card.showing-video').forEach(function(c) {
+            c.classList.remove('showing-video');
+            var v = c.querySelector('.proj-video');
+            if (v && v.tagName === 'VIDEO') { v.pause(); v.currentTime = 0; }
+          });
+          card.classList.add('showing-video');
+          if (video.tagName === 'VIDEO') video.play().catch(function(){});
+        });
+      }
+      // Text/meta area clicks → normal navigation (default <a> behavior)
+    }
   });
 </script>
 <!-- Mobile hamburger menu -->

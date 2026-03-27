@@ -130,12 +130,12 @@
     font-size: 13px !important;
   }
 
-  /* On mobile: disable hover, enable long-press video reveal */
+  /* On mobile: disable hover, enable tap-to-toggle video */
   .proj-card:hover .proj-img { opacity: 1 !important; }
   .proj-card:hover .proj-video { opacity: 0 !important; }
   .proj-video { opacity: 0 !important; }
-  .proj-card.touching .proj-img { opacity: 0 !important; }
-  .proj-card.touching .proj-video { opacity: 1 !important; }
+  .proj-card.showing-video .proj-img { opacity: 0 !important; }
+  .proj-card.showing-video .proj-video { opacity: 1 !important; }
 
   /* ════════════════════════════════════════════════════
      PROJECT PAGES — HERO
@@ -348,6 +348,36 @@
   /* Panorama full-width image */
   img[src*="AV_02_PANORAMA"] {
     width: 100% !important;
+  }
+
+  /* Body text between images → match overview text size */
+  .project-text {
+    font-size: 16px !important;
+  }
+
+  /* Portrait slider images → full width */
+  .slide-img {
+    width: 100% !important;
+    height: auto !important;
+  }
+  #slide-wrap {
+    width: 100% !important;
+  }
+
+  /* Autoplay sliders → same spacing as other images */
+  div[style*="margin:80px 12%"],
+  div[style*="margin:40px 12%"],
+  div[style*="margin: 80px 12%"],
+  div[style*="margin: 40px 12%"] {
+    margin-left: 4% !important;
+    margin-right: 4% !important;
+  }
+
+  /* Autoplay slide images → fill container width */
+  .aslide img, .aslide2 img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
   }
 
   /* Plan + Facade Detail → stack vertically, full width */
