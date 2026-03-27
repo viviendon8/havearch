@@ -451,12 +451,31 @@
   document.querySelectorAll('.proj-card').forEach(function(card) {
     var video = card.querySelector('.proj-video');
     if (!video) return;
+    // Desktop: hover
     card.addEventListener('mouseenter', function() {
       video.play().catch(function(){});
     });
     card.addEventListener('mouseleave', function() {
       video.pause();
       video.currentTime = 0;
+    });
+    // Mobile: long-press to peek video
+    var touchTimer = null;
+    card.addEventListener('touchstart', function(e) {
+      touchTimer = setTimeout(function() {
+        card.classList.add('touching');
+        if (video.tagName === 'VIDEO') video.play().catch(function(){});
+      }, 400);
+    }, {passive: true});
+    card.addEventListener('touchend', function() {
+      clearTimeout(touchTimer);
+      card.classList.remove('touching');
+      if (video.tagName === 'VIDEO') { video.pause(); video.currentTime = 0; }
+    });
+    card.addEventListener('touchmove', function() {
+      clearTimeout(touchTimer);
+      card.classList.remove('touching');
+      if (video.tagName === 'VIDEO') { video.pause(); video.currentTime = 0; }
     });
   });
 </script>
