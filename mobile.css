@@ -380,9 +380,10 @@
     margin-right: 4% !important;
   }
 
-  /* Autoplay sliders — no image overrides, keep desktop logic (height:100%, width:auto) */
+  /* Autoplay sliders — height fills, no crop, no overflow clip */
   #auto-wrap, #auto-wrap-2 {
     background: transparent !important;
+    overflow: visible !important;
   }
 
   /* Plan + Facade Detail → stack vertically, full width */
