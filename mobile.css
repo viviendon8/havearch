@@ -380,20 +380,9 @@
     margin-right: 4% !important;
   }
 
-  /* Autoplay slide images → height fills container, width auto (same as desktop) */
-  .aslide img, .aslide2 img {
-    height: 100% !important;
-    width: auto !important;
-    object-fit: none !important;
-  }
-  /* Consistent aspect ratio on mobile */
+  /* Autoplay sliders — no image overrides, keep desktop logic (height:100%, width:auto) */
   #auto-wrap, #auto-wrap-2 {
     background: transparent !important;
-  }
-  .aslide, .aslide2 {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
   }
 
   /* Plan + Facade Detail → stack vertically, full width */
