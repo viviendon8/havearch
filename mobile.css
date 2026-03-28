@@ -68,7 +68,11 @@
   #mobile-menu-close {
     position: absolute;
     top: 56px; right: 16px;
+    width: 44px; height: 44px;
     font-size: 32px;
+    line-height: 44px;
+    text-align: center;
+    padding: 0;
     background: none; border: none;
     cursor: pointer; color: #111;
     font-weight: 300;
@@ -339,10 +343,16 @@
   }
 
   /* ════════════════════════════════════════════════════
-     AURA VILLA — portrait slider
+     AURA VILLA — sliders
      ════════════════════════════════════════════════════ */
+
+  /* Portrait slider → full width, auto height */
+  #slide-wrap {
+    width: 100% !important;
+  }
   .slide-img {
-    height: 50vh !important;
+    width: 100% !important;
+    height: auto !important;
   }
 
   /* Panorama full-width image */
@@ -355,29 +365,30 @@
     font-size: 16px !important;
   }
 
-  /* Portrait slider images → full width */
-  .slide-img {
-    width: 100% !important;
-    height: auto !important;
-  }
-  #slide-wrap {
-    width: 100% !important;
-  }
-
   /* Autoplay sliders → same spacing as other images */
-  div[style*="margin:80px 12%"],
-  div[style*="margin:40px 12%"],
-  div[style*="margin: 80px 12%"],
-  div[style*="margin: 40px 12%"] {
+  div[style*="margin:80px 16%"],
+  div[style*="margin:40px 16%"],
+  div[style*="margin: 80px 16%"],
+  div[style*="margin: 40px 16%"] {
     margin-left: 4% !important;
     margin-right: 4% !important;
   }
 
-  /* Autoplay slide images → fill container width */
+  /* Autoplay slide images → fill width, uniform height via aspect ratio */
   .aslide img, .aslide2 img {
     width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+  /* Lock slider containers to consistent aspect ratio on mobile */
+  #auto-wrap, #auto-wrap-2 {
+    padding-top: 66% !important;
+    background: transparent !important;
+  }
+  .aslide, .aslide2 {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
   /* Plan + Facade Detail → stack vertically, full width */

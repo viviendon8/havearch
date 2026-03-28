@@ -200,20 +200,21 @@
     background: #ccc; transition: background 0.2s;
   }
   .adot2.active { background: #111; }
-  .aslide2 { transition: opacity 0.4s ease; }
+  .aslide2 { transition: opacity 0.5s ease; }
 
   .adot {
     width: 6px; height: 6px; border-radius: 50%;
     background: #ccc; transition: background 0.2s;
   }
   .adot.active { background: #111; }
-  .aslide { transition: opacity 0.4s ease; }
+  .aslide { transition: opacity 0.5s ease; }
 
   .sdot {
     width: 6px; height: 6px; border-radius: 50%;
     background: #ccc; transition: background 0.2s;
   }
   .sdot.active { background: #111; }
+  .slide-img { transition: opacity 0.5s ease; }
   #slide-wrap { cursor: none; }
 
   /* ── Content Protection ─────────────────────────────── */
@@ -318,11 +319,11 @@
   <!-- Image 01: full width -->
   <img src="https://media.havearch.com/AV_02_PANORAMA.jpg" style="width:100%;height:auto;display:block;" alt="" />
 
-  <!-- Slider: 02 + 03 -->
+  <!-- Autoplay slider: portrait -->
   <div id="img-slider" style="margin-top:40px; display:flex; flex-direction:column; align-items:center;">
     <div id="slide-wrap" style="position:relative; display:inline-block; line-height:0;">
-      <img class="slide-img" src="https://media.havearch.com/AV_01_FRONT.jpg" style="height:80vh; width:auto; display:block;" />
-      <img class="slide-img" src="https://media.havearch.com/AV_03_NIGHT.jpg" style="height:80vh; width:auto; display:none;" />
+      <img class="slide-img" src="https://media.havearch.com/AV_01_FRONT.jpg" style="height:80vh; width:auto; display:block; opacity:1;" />
+      <img class="slide-img" src="https://media.havearch.com/AV_03_NIGHT.jpg" style="position:absolute; top:0; left:0; height:80vh; width:auto; opacity:0;" />
       <div id="btn-prev" style="position:absolute;top:0;left:0;width:50%;height:100%;z-index:10;display:flex;align-items:center;justify-content:flex-start;padding-left:20px;">
         <svg id="arrow-prev" width="44" height="44" viewBox="0 0 44 44" fill="none" style="opacity:0;transition:opacity 0.18s;">
           <polyline points="26,12 14,22 26,32" stroke="#00ff18" stroke-width="2.5" fill="none" stroke-linejoin="miter" stroke-linecap="square"/>
@@ -333,10 +334,6 @@
           <polyline points="18,12 30,22 18,32" stroke="#00ff18" stroke-width="2.5" fill="none" stroke-linejoin="miter" stroke-linecap="square"/>
         </svg>
       </div>
-    </div>
-    <div style="display:flex;gap:8px;margin-top:16px;">
-      <div class="sdot active"></div>
-      <div class="sdot"></div>
     </div>
   </div>
 
@@ -350,16 +347,16 @@
 
 
 <!-- Autoplay slideshow -->
-<div style="margin:80px 12% 0;">
+<div style="margin:80px 16% 0;">
   <div style="position:relative; width:100%; padding-top:62.46%; background:#fff; overflow:hidden;" id="auto-wrap">
 
-    <div class="aslide" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+    <div class="aslide" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:1;">
       <img src="https://media.havearch.com/AV_04_ENTRANCE.jpg" style="height:100%;width:auto;display:block;" />
     </div>
-    <div class="aslide" style="position:absolute;inset:0;display:none;align-items:center;justify-content:center;">
+    <div class="aslide" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;">
       <img src="https://media.havearch.com/AV_05_POOL.jpg" style="height:100%;width:auto;display:block;" />
     </div>
-    <div class="aslide" style="position:absolute;inset:0;display:none;align-items:center;justify-content:center;">
+    <div class="aslide" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;">
       <img src="https://media.havearch.com/AV_06_APT%20ENTRY.jpg" style="height:100%;width:auto;display:block;" />
     </div>
 
@@ -375,28 +372,24 @@
     </div>
 
   </div>
-  <div style="display:flex;gap:8px;margin-top:16px;justify-content:center;">
-    <div class="adot active"></div>
-    <div class="adot"></div>
-    <div class="adot"></div>
   </div>
 </div>
 
 
 <!-- Autoplay slideshow 2 -->
-<div style="margin:40px 12% 0;">
+<div style="margin:40px 16% 0;">
   <div style="position:relative; width:100%; padding-top:66.62%; background:#fff; overflow:hidden;" id="auto-wrap-2">
 
-    <div class="aslide2" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+    <div class="aslide2" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:1;">
       <img src="https://media.havearch.com/AV_07_LIVING%20ROOM.jpg" style="height:100%;width:auto;display:block;" />
     </div>
-    <div class="aslide2" style="position:absolute;inset:0;display:none;align-items:center;justify-content:center;">
+    <div class="aslide2" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;">
       <img src="https://media.havearch.com/AV_08_DINING%20ROOM.jpg" style="height:100%;width:auto;display:block;" />
     </div>
-    <div class="aslide2" style="position:absolute;inset:0;display:none;align-items:center;justify-content:center;">
+    <div class="aslide2" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;">
       <img src="https://media.havearch.com/AV_09_BEDROOM.jpg" style="height:100%;width:auto;display:block;" />
     </div>
-    <div class="aslide2" style="position:absolute;inset:0;display:none;align-items:center;justify-content:center;">
+    <div class="aslide2" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;">
       <img src="https://media.havearch.com/AV_10_WINDOW%20VIEW.jpg" style="height:100%;width:auto;display:block;" />
     </div>
 
@@ -412,11 +405,6 @@
     </div>
 
   </div>
-  <div style="display:flex;gap:8px;margin-top:16px;justify-content:center;">
-    <div class="adot2 active"></div>
-    <div class="adot2"></div>
-    <div class="adot2"></div>
-    <div class="adot2"></div>
   </div>
 </div>
 
@@ -457,7 +445,7 @@
 
 <!-- Copyright -->
 <div style="text-align:center; padding: 48px 8% 64px; font-family:'Inter',sans-serif; font-weight:300; font-size:12px; letter-spacing:0.08em; color:#999;">
-  © 2025 HAVE Architecture. All rights reserved.
+  © 2026 HAVE Architecture. All rights reserved.
 </div>
 
 
@@ -523,58 +511,45 @@
     bar.addEventListener('mouseleave', () => bar.classList.remove('visible'));
   })();
 
-  // ── Portrait slider ──────────────────────────────────
+  // ── Portrait autoplay slider (crossfade) ─────────────
   (function() {
     const imgs   = document.querySelectorAll('.slide-img');
-    const dots   = document.querySelectorAll('.sdot');
     const arrowP = document.getElementById('arrow-prev');
     const arrowN = document.getElementById('arrow-next');
     const wrap   = document.getElementById('slide-wrap');
-    let cur = 0;
+    let cur = 0, timer;
 
     function show(n) {
-      imgs[cur].style.display = 'none';
-      dots[cur].classList.remove('active');
-      cur = Math.max(0, Math.min(n, imgs.length - 1));
-      imgs[cur].style.display = 'block';
-      dots[cur].classList.add('active');
-      arrowP.style.opacity = cur === 0 ? '0' : '1';
-      arrowN.style.opacity = cur === imgs.length - 1 ? '0' : '1';
+      imgs[cur].style.opacity = '0';
+      cur = (n + imgs.length) % imgs.length;
+      imgs[cur].style.opacity = '1';
     }
 
-    document.getElementById('btn-prev').addEventListener('click', () => show(cur - 1));
-    document.getElementById('btn-next').addEventListener('click', () => show(cur + 1));
-    wrap.addEventListener('mouseenter', () => { arrowP.style.opacity = cur===0?'0':'1'; arrowN.style.opacity = cur===imgs.length-1?'0':'1'; });
+    function startTimer() { clearInterval(timer); timer = setInterval(() => show(cur + 1), 2500); }
+
+    document.getElementById('btn-prev').addEventListener('click', () => { show(cur - 1); startTimer(); });
+    document.getElementById('btn-next').addEventListener('click', () => { show(cur + 1); startTimer(); });
+    wrap.addEventListener('mouseenter', () => { arrowP.style.opacity='1'; arrowN.style.opacity='1'; });
     wrap.addEventListener('mouseleave', () => { arrowP.style.opacity='0'; arrowN.style.opacity='0'; });
     show(0);
+    startTimer();
   })();
 
-  // ── Autoplay slideshow ───────────────────────────────
+  // ── Autoplay slideshow (crossfade) ───────────────────
   (function() {
     const slides = document.querySelectorAll('.aslide');
-    const dots   = document.querySelectorAll('.adot');
     const aprev  = document.getElementById('auto-arrow-prev');
     const anext  = document.getElementById('auto-arrow-next');
     const wrap   = document.getElementById('auto-wrap');
     let cur = 0, timer;
 
     function show(n) {
-      const prev = cur;
-      dots[cur].classList.remove('active');
+      slides[cur].style.opacity = '0';
       cur = (n + slides.length) % slides.length;
-      dots[cur].classList.add('active');
-      slides[prev].style.opacity = '0';
-      setTimeout(() => {
-        slides[prev].style.display = 'none';
-        slides[cur].style.display = 'flex';
-        slides[cur].style.opacity = '0';
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => { slides[cur].style.opacity = '1'; });
-        });
-      }, 400);
+      slides[cur].style.opacity = '1';
     }
 
-    function startTimer() { clearInterval(timer); timer = setInterval(() => show(cur + 1), 3000); }
+    function startTimer() { clearInterval(timer); timer = setInterval(() => show(cur + 1), 2500); }
 
     document.getElementById('auto-prev').addEventListener('click', () => { show(cur - 1); startTimer(); });
     document.getElementById('auto-next').addEventListener('click', () => { show(cur + 1); startTimer(); });
@@ -586,30 +561,21 @@
   })();
 
 
-  // ── Autoplay slideshow 2 ──────────────────────────────
+  // ── Autoplay slideshow 2 (crossfade) ─────────────────
   (function() {
     const slides = document.querySelectorAll('.aslide2');
-    const dots   = document.querySelectorAll('.adot2');
     const aprev  = document.getElementById('auto-arrow-prev-2');
     const anext  = document.getElementById('auto-arrow-next-2');
     const wrap   = document.getElementById('auto-wrap-2');
     let cur = 0, timer;
 
     function show(n) {
-      const prev = cur;
-      dots[cur].classList.remove('active');
+      slides[cur].style.opacity = '0';
       cur = (n + slides.length) % slides.length;
-      dots[cur].classList.add('active');
-      slides[prev].style.opacity = '0';
-      setTimeout(() => {
-        slides[prev].style.display = 'none';
-        slides[cur].style.display = 'flex';
-        slides[cur].style.opacity = '0';
-        requestAnimationFrame(() => requestAnimationFrame(() => { slides[cur].style.opacity = '1'; }));
-      }, 400);
+      slides[cur].style.opacity = '1';
     }
 
-    function startTimer() { clearInterval(timer); timer = setInterval(() => show(cur + 1), 3000); }
+    function startTimer() { clearInterval(timer); timer = setInterval(() => show(cur + 1), 2500); }
 
     document.getElementById('auto-prev-2').addEventListener('click', () => { show(cur - 1); startTimer(); });
     document.getElementById('auto-next-2').addEventListener('click', () => { show(cur + 1); startTimer(); });
